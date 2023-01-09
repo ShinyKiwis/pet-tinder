@@ -1,0 +1,22 @@
+.textbox_container {
+  padding: 0.5em 1em;
+  border-radius: 0.6em;
+  border: 2px solid var(--primary);
+}
+
+.textbox_container input {
+  border: none;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: var(--text-dark);
+  width: 100%;
+}
+
+.textbox_container input:focus {
+  outline: none;
+}
+
+.textbox_container input::placeholder {
+  color: var(--text-light);
+  font-weight: 500;
+}

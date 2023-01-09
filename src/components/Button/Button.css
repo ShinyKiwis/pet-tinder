@@ -1,0 +1,21 @@
+.button_primary {
+  font-weight: 500;
+  font-size: 1.2em;
+  color: var(--secondary-white);
+  background-color: var(--primary);
+  padding: 0.55em 2em;
+  border: none;
+  border-radius: 0.6em;
+  cursor: pointer;
+}
+
+.button_secondary {
+  font-weight: 500;
+  font-size: 1.2em;
+  color: var(--primary);
+  background-color: var(--secondary-white);
+  padding: 0.5em 2em;
+  border: 2px solid var(--primary);
+  border-radius: 0.6em;
+  cursor: pointer;
+}

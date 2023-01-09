@@ -1,0 +1,6 @@
+.feature_image {
+  width: 100%;
+  height: 20em;
+  object-fit: cover;
+  border-radius: 0 0 2em 2em;
+}

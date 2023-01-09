@@ -1,0 +1,19 @@
+.logo_container {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  text-align: center;
+  background-color: var(--secondary-white);
+  margin-top: -2.2em;
+  padding: 0.5em 0em;
+  border-radius: 0.6em;
+  box-shadow: 0px 5px 15px #ccc;
+}
+
+.user_section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  margin-top: 20%;
+  padding-inline: 12%;
+}
