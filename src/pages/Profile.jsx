@@ -1,11 +1,11 @@
-import { Header } from "../components"
+import { Header } from "../components";
 
 const Profile = () => {
   return (
     <main>
-      <Header renderAvatar={false}/>
+      <Header renderAvatar={false} />
     </main>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

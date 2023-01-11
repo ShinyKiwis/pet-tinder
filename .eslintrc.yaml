@@ -4,7 +4,7 @@ extends:
   - plugin:react/recommended
   - plugin:jsx-a11y/recommended
   - plugin:react-hooks/recommended
-  - prettier 
+  - prettier
 rules:
   react/prop-types: 0
   react/react-in-jsx-scope: 0
@@ -15,12 +15,12 @@ plugins:
 parserOptions:
   ecmaVersion: 2022
   sourceType: module
-  ecmaFeatures: 
-    jsx: true 
+  ecmaFeatures:
+    jsx: true
 env:
   es6: true
   browser: true
-  node: true 
+  node: true
 settings:
   react:
     version: detect
