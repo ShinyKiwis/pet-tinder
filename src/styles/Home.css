@@ -37,7 +37,7 @@ h3 {
 
 .pets_container {
   margin-top: 1em;
-  height: 70vh;
+  height: 62vh;
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
