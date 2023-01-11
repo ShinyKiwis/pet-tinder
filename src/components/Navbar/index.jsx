@@ -1,17 +1,19 @@
 import "./Navbar.css";
 import { AiFillHome, AiFillHeart, AiFillSetting } from "react-icons/ai";
 import { BsFillPeopleFill, BsFillPersonFill } from "react-icons/bs";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const NavbarItem = ({ location, routePath, Icon, content }) => {
   const isActive = location.pathname === routePath;
   return (
-    <div className={`navbar_item ${isActive ? "navbar_item_active" : ""}`}>
-      <span className={isActive ? "navbar_icon_active" : ""}>
-        <Icon size="2em" />
-      </span>
-      {content}
-    </div>
+    <Link to={routePath} style={{textDecoration: "none"}}>
+      <div className={`navbar_item ${isActive ? "navbar_item_active" : ""}`}>
+        <span className={isActive ? "navbar_icon_active" : ""}>
+          <Icon size="2em" />
+        </span>
+        {content}
+      </div>
+    </Link>
   );
 };
 

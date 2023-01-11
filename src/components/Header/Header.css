@@ -3,6 +3,6 @@ header {
   align-items: center;
 }
 
-header>img:last-child {
+header>img:last-child:not(:only-of-type) {
   margin-left: auto;
 }
