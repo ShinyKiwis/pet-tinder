@@ -1,0 +1,20 @@
+.community_activity {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--primary-light);
+  padding: 0.5em 0.2em;
+  border-radius: 0.6em;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-top: 0.8em;
+}
+
+.community_activity strong {
+  color: var(--primary);
+}
+
+.activities_container {
+  height: 60vh;
+  overflow: auto;
+}
