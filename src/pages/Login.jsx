@@ -2,28 +2,34 @@ import { Button, FeatureImage, Logo, TextBox } from "../components";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import "../styles/Login.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
   const numberOfImages = 5;
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useContext(AuthContext);
 
   const onChangeUsername = (e) => {
-    console.log(username);
     setUsername(e.target.value);
   };
 
   const onChangePassword = (e) => {
-    console.log(password);
     setPassword(e.target.value);
   };
 
   const handleLogin = () => {
-    console.log("Here");
-    navigate("/");
+    if (username === "admin" && password === "admin") {
+      const user = {
+        username: "admin",
+        password: "admin",
+      };
+      login(user);
+      navigate("/");
+    }
   };
 
   return (

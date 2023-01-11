@@ -1,0 +1,8 @@
+header {
+  display: flex;
+  align-items: center;
+}
+
+header>img:last-child {
+  margin-left: auto;
+}
