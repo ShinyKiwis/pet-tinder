@@ -1,0 +1,53 @@
+.settings_container {
+  padding-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  height: 80vh;
+}
+
+
+.settings_container>button:first-of-type {
+  background-color: var(--secondary-white);
+  color: var(--primary);
+  font-size: 1.5em;
+  width: 100%;
+  border: 2px dotted var(--primary);
+  border-radius: 0.5em;
+  padding: 0.8em;
+  font-weight: 500;
+}
+
+.settings_actions button {
+  border:none;
+  background-color: var(--primary);
+  color: var(--secondary-white);
+  width: 100%;
+  padding: 0.8em;
+  font-weight: 500;
+  font-size: 1.5em;
+  border-radius: 0.5em;
+  margin-bottom: 0.8em;
+}
+
+.settings_actions button:last-child {
+  background-color: var(--secondary-white);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.bio_container textarea {
+  margin-top: 0.8em;
+  padding: 0.5em;
+  width: 90vw;
+  height: fit-content;
+  border: none;
+  border-bottom: 2px solid var(--text-light);
+  resize: none;
+}
+
+.settings_actions {
+  margin-top: auto;
+  width: 100%;
+}
