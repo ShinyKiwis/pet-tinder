@@ -1,11 +1,14 @@
-import "./Button.css"
+import "./Button.css";
 
-const Button = ({content, isPrimary}) => {
+const Button = ({ content, isPrimary, onClick }) => {
   return (
-    <button className={isPrimary ? "button_primary": "button_secondary"}>
+    <button
+      className={isPrimary ? "button_primary" : "button_secondary"}
+      onClick={onClick}
+    >
       {content}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

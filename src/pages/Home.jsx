@@ -1,16 +1,10 @@
-import {useAuth} from "../hooks"
-import {useNavigate} from "react-router-dom"
+import { useAuth } from "../hooks";
+import { Navigate } from "react-router-dom";
 
 const Home = () => {
-  const navigate = useNavigate()
-  const {user} = useAuth()
-  if(!user) {
-    navigate("/login")
-  }
+  const { user } = useAuth();
 
-  return (
-    <div>Home</div>
-  )
-}
+  return user ? <div>Home</div> : <Navigate to="/login" />;
+};
 
-export default Home
+export default Home;
