@@ -10,4 +10,9 @@ main {
   margin-top: 1em;
   margin-inline: 1em;
   overflow: hidden;
+  color: var(--primary);
+}
+
+h3 {
+  margin-top: 2em;
 }

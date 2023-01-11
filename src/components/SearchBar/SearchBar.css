@@ -1,0 +1,28 @@
+.searchbar_container input {
+  width: 100%;
+  font-size: 1.2em;
+  border: none;
+} 
+
+.searchbar_container input::placeholder {
+  color: var(--text-light);
+}
+
+.searchbar_container input:focus {
+  outline: none;
+}
+
+.searchbar_container:focus-within {
+  color: var(--text-dark);
+}
+
+.searchbar_container {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  padding-bottom: 0.5em;
+  border-bottom: 2px solid var(--text-light);
+  color: var(--text-light);
+  font-weight: 500;
+}

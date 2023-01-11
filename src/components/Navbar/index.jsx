@@ -20,7 +20,7 @@ const NavbarItem = ({ location, routePath, Icon, content }) => {
 const Navbar = () => {
   const location = useLocation();
   const navItems = [
-    { routePath: "/love", content: "Loved", icon: AiFillHeart },
+    { routePath: "/loved", content: "Loved", icon: AiFillHeart },
     { routePath: "/community", content: "Community", icon: BsFillPeopleFill },
     { routePath: "/", content: "Home", icon: AiFillHome },
     { routePath: "/profile", content: "Profile", icon: BsFillPersonFill },
