@@ -1,7 +1,12 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Avatar, Header } from "../components";
+import { AuthContext } from "../providers/AuthProvider";
 import "../styles/Settings.css";
 
 const Settings = () => {
+  const { logout } = useContext(AuthContext);
+  const navigate = useNavigate();
   return (
     <main>
       <Header renderAvatar={false} />
@@ -15,7 +20,14 @@ const Settings = () => {
         </div>
         <div className="settings_actions">
           <button>Update Bio</button>
-          <button>Logout</button>
+          <button
+            onClick={() => {
+              logout();
+              navigate("/");
+            }}
+          >
+            Logout
+          </button>
         </div>
       </div>
     </main>

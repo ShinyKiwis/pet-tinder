@@ -13,7 +13,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const { login } = useContext(AuthContext);
 
-  const authUser = async (url, data) => {
+  const fetchData = async (url, data) => {
     const user = await fetch(url, {
       method: "POST",
       mode: "cors",
@@ -26,7 +26,7 @@ const Login = () => {
   };
 
   const handleLogin = () => {
-    authUser("http://localhost:3600/api/login", {
+    fetchData("http://localhost:3600/api/login", {
       username: username,
       password: password,
     }).then((data) => {
@@ -38,6 +38,15 @@ const Login = () => {
         console.log(false);
       }
     });
+  };
+
+  const handleRegister = () => {
+    if (username && password) {
+      fetchData("http://localhost:3600/api/register", {
+        username: username,
+        password: password,
+      });
+    }
   };
 
   return (
@@ -72,7 +81,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <Button content="Sign in" isPrimary={true} onClick={handleLogin} />
-        <Button content="Register" isPrimary={false} />
+        <Button content="Register" isPrimary={false} onClick={handleRegister} />
       </div>
     </>
   );
