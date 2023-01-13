@@ -5,6 +5,7 @@ import "../styles/Login.css";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import fetchData from "../helpers/fetchData";
 
 const Login = () => {
   const numberOfImages = 5;
@@ -13,24 +14,14 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const { login } = useContext(AuthContext);
 
-  const fetchData = async (url, data) => {
-    const user = await fetch(url, {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    return user.json();
-  };
-
   const handleLogin = () => {
     fetchData("http://localhost:3600/api/login", {
       username: username,
       password: password,
     }).then((data) => {
-      if (password === data.password) {
+      if (data.ERROR) {
+        // Render a popup modal
+      } else if (password === data.password) {
         login(data);
         navigate("/");
       } else {

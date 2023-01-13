@@ -8,6 +8,10 @@
   gap: 0.5em;
 }
 
+.profile_container>div {
+  width: 100%;
+}
+
 .profile_container p {
   color: var(--text-dark);
   font-weight: 500;

@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { Avatar, Header } from "../components";
+import { AuthContext } from "../providers/AuthProvider";
 import "../styles/Profile.css";
 
 const FriendAvatar = ({ name }) => {
@@ -11,21 +13,17 @@ const FriendAvatar = ({ name }) => {
 };
 
 const Profile = () => {
-  const friends = ["Sandy","Randy", "Alex", "Doki","Poki", "Titan", "John", "Anna", "Billy"];
+  const { user } = useContext(AuthContext);
+  const friends = user.adopted;
   return (
     <main>
       <Header renderAvatar={false} />
       <div className="profile_container">
         <Avatar size="big" />
-        <h1>Nguyen</h1>
+        <h1>{user.username}</h1>
         <div>
           <h2>Bio</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora
-            eligendi atque repellendus quaerat, dolores quod voluptate
-            reprehenderit perspiciatis laboriosam excepturi vel illum dolore
-            recusandae sit ducimus, cupiditate at asperiores in.
-          </p>
+          <p>{user.bio}</p>
           <h2>Friend with</h2>
           <div className="friends_container">
             {friends.map((friend) => (

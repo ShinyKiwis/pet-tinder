@@ -45,6 +45,13 @@
   border: none;
   border-bottom: 2px solid var(--text-light);
   resize: none;
+  font-size: 1.2em;
+  color: var(--text-dark);
+}
+
+.bio_container textarea:focus {
+  outline: none;
+  border-bottom: 2px solid var(--primary);
 }
 
 .settings_actions {
