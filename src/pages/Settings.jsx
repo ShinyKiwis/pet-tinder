@@ -29,7 +29,7 @@ const Settings = () => {
       <div className="settings_container">
         <Avatar size="big" />
         <h1>{user.username}</h1>
-        <button>Upload avatar</button>
+        <button>Update avatar</button>
         <div className="bio_container">
           <h2>Bio</h2>
           <textarea
