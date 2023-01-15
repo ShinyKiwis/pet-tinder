@@ -1,11 +1,19 @@
-import { Button, FeatureImage, Logo, TextBox } from "../components";
+import {
+  Button,
+  FeatureImage,
+  Logo,
+  TextBox,
+  Modal,
+  Message,
+} from "../components";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import "../styles/Login.css";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import "../styles/Login.css";
 import fetchData from "../helpers/fetchData";
+import { ModalContext } from "../providers/ModalProvider";
 
 const Login = () => {
   const numberOfImages = 5;
@@ -13,22 +21,29 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useContext(AuthContext);
+  const { toggleModal, showModal, closeModal, message } =
+    useContext(ModalContext);
 
   const handleLogin = () => {
-    fetchData("http://localhost:3600/api/login", {
-      username: username,
-      password: password,
-    }).then((data) => {
-      if (data.ERROR) {
-        // Render a popup modal
-      } else if (password === data.password) {
-        login(data);
-        navigate("/");
-      } else {
-        // Render a popup modal
-        console.log(false);
-      }
-    });
+    if (username && password) {
+      fetchData("http://localhost:3600/api/login", {
+        username: username,
+        password: password,
+      }).then((data) => {
+        console.log(data);
+        if (data.ERROR) {
+          // Render a popup modal
+          toggleModal(data.ERROR);
+        } else if (password === data.password) {
+          login(data);
+          navigate("/");
+        } else {
+          toggleModal("Invalid Credentials");
+        }
+      });
+    } else {
+      toggleModal("Please enter username and password to proceed");
+    }
   };
 
   const handleRegister = () => {
@@ -37,11 +52,18 @@ const Login = () => {
         username: username,
         password: password,
       });
+    } else {
+      toggleModal("Please enter username and password to register");
     }
   };
 
   return (
     <>
+      {showModal && (
+        <Modal>
+          <Message message={message} onClose={closeModal} />
+        </Modal>
+      )}
       <Carousel
         showArrows={false}
         showThumbs={false}
