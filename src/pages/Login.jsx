@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import "../styles/Login.css";
 import fetchData from "../helpers/fetchData";
-import { ModalContext } from "../providers/ModalProvider";
+import { useModal } from "../hooks";
 
 const Login = () => {
   const numberOfImages = 5;
@@ -21,8 +21,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useContext(AuthContext);
-  const { toggleModal, showModal, closeModal, message } =
-    useContext(ModalContext);
+  const { toggleModal, showModal, closeModal, message } = useModal()
 
   const handleLogin = () => {
     if (username && password) {
