@@ -3,12 +3,12 @@
 import "./Avatar.css";
 import { useNavigate } from "react-router-dom";
 
-const Avatar = ({ size }) => {
+const Avatar = ({ imgSrc, size }) => {
   const navigate = useNavigate();
   return (
     <img
       className={`${size} avatar`}
-      src="/images/avatar.jpg"
+      src={imgSrc ? imgSrc : "vite.svg"}
       alt="user avatar"
       onClick={() => navigate("/profile")}
     />

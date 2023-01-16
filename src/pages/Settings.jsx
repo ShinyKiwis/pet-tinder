@@ -23,6 +23,9 @@ const Settings = () => {
         attribute: "bio",
         value: bio,
       });
+      toggleModal("Bio updated!");
+    } else {
+      toggleModal("Please enter your new bio before updating it");
     }
   };
 
