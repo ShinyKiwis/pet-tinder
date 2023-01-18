@@ -16,7 +16,7 @@ const PetCard = ({ imgSrc, name, gender, breed, age }) => {
       <div className="petcard_info_container">
         <div className="petcard_info">
           <h4>{name}</h4>
-          {gender === "F" ? (
+          {gender === "Female" ? (
             <BsGenderFemale color="#FB7070" size="1.2em" />
           ) : (
             <BsGenderMale color="#8CB3ED" size="1.2em" />
