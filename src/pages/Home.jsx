@@ -19,22 +19,20 @@ const Home = () => {
         <>
           <h3>Your new friends await!</h3>
           <div className="pets_container">
-            {petList.map((pet) => {
-              if (pet.photos.length !== 0) {
-                return (
-                  <PetCard
-                    key={pet.id}
-                    imgSrc={pet.photos[0].medium}
-                    name={pet.name}
-                    gender={pet.gender}
-                    breed={pet.breeds.primary}
-                    age={pet.age}
-                  />
-                );
-              } else {
-                return <div></div>;
-              }
-            })}
+            {petList.map((pet) => (
+              <PetCard
+                key={pet.id}
+                imgSrc={
+                  pet.photos.length
+                    ? pet.photos[0].medium
+                    : "https://img.freepik.com/free-vector/pet-logo-design-paw-vector-animal-shop-business_53876-136741.jpg"
+                }
+                name={pet.name}
+                gender={pet.gender}
+                breed={pet.breeds.primary}
+                age={pet.age}
+              />
+            ))}
           </div>
         </>
       )}

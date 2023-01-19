@@ -23,6 +23,13 @@
   color: var(--text-dark);
 }
 
+.petcard_info>p {
+  width: 80%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .petcard_info:last-child {
   color: var(--text-light);
 }

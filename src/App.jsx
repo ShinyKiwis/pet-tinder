@@ -6,7 +6,14 @@ import { Home, Login, Loved, Profile, Community, Settings } from "./pages";
 import { Navbar } from "./components";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+      cacheTime: Infinity,
+    },
+  },
+});
 
 function App() {
   return (
