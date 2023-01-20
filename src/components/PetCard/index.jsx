@@ -1,13 +1,35 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import "./PetCard.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BsGenderFemale, BsGenderMale, BsHeartFill } from "react-icons/bs";
+import { AuthContext } from "../../providers/AuthProvider";
 
-const PetCard = ({ imgSrc, name, gender, breed, age }) => {
-  const [isLoved, setIsLoved] = useState(false);
+const petIsLoved = (id, lovedPets) => {
+  const lovedPet = lovedPets.filter((lovedPet) => lovedPet.id === id);
+  return lovedPet.length === 1 ? true : false;
+};
 
+const PetCard = ({ id, imgSrc, name, gender, breed, age }) => {
+  const { user, setUser } = useContext(AuthContext);
+  const [isLoved, setIsLoved] = useState(petIsLoved(id, user.loved));
   const handleLove = () => {
+    const petInfo = {
+      id: id,
+      imgSrc: imgSrc,
+      name: name,
+      gender: gender,
+      breed: breed,
+      age: age,
+    };
+    if (!isLoved) {
+      setUser({ ...user, loved: [...user.loved, petInfo] });
+    } else {
+      setUser({
+        ...user,
+        loved: user.loved.filter((lovedPet) => lovedPet.id !== id),
+      });
+    }
     setIsLoved(!isLoved);
   };
   return (

@@ -1,6 +1,7 @@
 .petcard_container {
   position: relative;
-  flex: 45%;
+  flex: 0 1 calc(50% - 8px);
+  /* flex: 45%; */
   font-weight: 500;
   width: 30%;
   height: 30%;

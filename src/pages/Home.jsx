@@ -22,6 +22,7 @@ const Home = () => {
             {petList.map((pet) => (
               <PetCard
                 key={pet.id}
+                id={pet.id}
                 imgSrc={
                   pet.photos.length
                     ? pet.photos[0].medium

@@ -29,7 +29,6 @@ const Login = () => {
         username: username,
         password: password,
       }).then((data) => {
-        console.log(data);
         if (data.ERROR) {
           // Render a popup modal
           toggleModal(data.ERROR);
