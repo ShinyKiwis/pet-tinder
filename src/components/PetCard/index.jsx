@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import "./PetCard.css";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BsGenderFemale, BsGenderMale, BsHeartFill } from "react-icons/bs";
 import { AuthContext } from "../../providers/AuthProvider";
+import fetchData from "../../helpers/fetchData";
 
 const petIsLoved = (id, lovedPets) => {
   const lovedPet = lovedPets.filter((lovedPet) => lovedPet.id === id);
@@ -32,6 +33,15 @@ const PetCard = ({ id, imgSrc, name, gender, breed, age }) => {
     }
     setIsLoved(!isLoved);
   };
+
+  useEffect(() => {
+    fetchData("http://localhost:3600/api/update", {
+      username: user.username,
+      attribute: "loved",
+      value: user.loved,
+    });
+  }, [user]);
+
   return (
     <div className="petcard_container">
       <img src={imgSrc} alt="pet card" />
