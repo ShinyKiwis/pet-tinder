@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { BsGenderFemale, BsGenderMale, BsHeartFill } from "react-icons/bs";
 import { AuthContext } from "../../providers/AuthProvider";
 import fetchData from "../../helpers/fetchData";
+import { useNavigate } from "react-router-dom";
 
 const petIsLoved = (id, lovedPets) => {
   const lovedPet = lovedPets.filter((lovedPet) => lovedPet.id === id);
@@ -12,6 +13,7 @@ const petIsLoved = (id, lovedPets) => {
 };
 
 const PetCard = ({ id, imgSrc, name, gender, breed, age }) => {
+  const navigate = useNavigate()
   const { user, setUser } = useContext(AuthContext);
   const [isLoved, setIsLoved] = useState(petIsLoved(id, user.loved));
   const handleLove = () => {
@@ -42,8 +44,10 @@ const PetCard = ({ id, imgSrc, name, gender, breed, age }) => {
     });
   }, [user]);
 
+
+
   return (
-    <div className="petcard_container">
+    <div className="petcard_container" onClick={()=> navigate(`/adoption/${id}`)}>
       <img src={imgSrc} alt="pet card" />
       <div className="petcard_info_container">
         <div className="petcard_info">
