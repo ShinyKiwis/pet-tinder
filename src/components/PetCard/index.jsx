@@ -1,19 +1,21 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import "./PetCard.css";
 import { useContext, useEffect, useState } from "react";
-import { BsGenderFemale, BsGenderMale, BsHeartFill } from "react-icons/bs";
+import { BsHeartFill } from "react-icons/bs";
 import { AuthContext } from "../../providers/AuthProvider";
 import fetchData from "../../helpers/fetchData";
 import { useNavigate } from "react-router-dom";
+import { GenderIcon } from "..";
 
 const petIsLoved = (id, lovedPets) => {
-  const lovedPet = lovedPets.filter((lovedPet) => lovedPet.id === id);
+  const lovedPet = lovedPets.filter((lovedPet) => lovedPet.id == id);
   return lovedPet.length === 1 ? true : false;
 };
 
 const PetCard = ({ id, imgSrc, name, gender, breed, age }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { user, setUser } = useContext(AuthContext);
   const [isLoved, setIsLoved] = useState(petIsLoved(id, user.loved));
   const handleLove = () => {
@@ -44,19 +46,17 @@ const PetCard = ({ id, imgSrc, name, gender, breed, age }) => {
     });
   }, [user]);
 
-
-
   return (
-    <div className="petcard_container" onClick={()=> navigate(`/adoption/${id}`)}>
-      <img src={imgSrc} alt="pet card" />
+    <div className="petcard_container">
+      <img
+        src={imgSrc}
+        alt="pet card"
+        onClick={() => navigate(`/adoption/${id}`)}
+      />
       <div className="petcard_info_container">
         <div className="petcard_info">
           <h4>{name}</h4>
-          {gender === "Female" ? (
-            <BsGenderFemale color="#FB7070" size="1.2em" />
-          ) : (
-            <BsGenderMale color="#8CB3ED" size="1.2em" />
-          )}
+          <GenderIcon gender={gender} />
         </div>
         <div className="petcard_info">
           <p>{breed}</p>-<p>{age}</p>

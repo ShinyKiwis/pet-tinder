@@ -3,10 +3,10 @@ import { Avatar, Header } from "../components";
 import { AuthContext } from "../providers/AuthProvider";
 import "../styles/Profile.css";
 
-const FriendAvatar = ({ name }) => {
+const FriendAvatar = ({ name, imgSrc }) => {
   return (
     <div className="friend_avatar">
-      <Avatar size="big" />
+      <Avatar size="big" imgSrc={imgSrc} />
       <span>{name}</span>
     </div>
   );
@@ -27,7 +27,11 @@ const Profile = () => {
           <h2>Friend with</h2>
           <div className="friends_container">
             {friends.map((friend) => (
-              <FriendAvatar key={friend} name={friend} />
+              <FriendAvatar
+                key={friend.id}
+                name={friend.name}
+                imgSrc={friend.imgSrc}
+              />
             ))}
           </div>
         </div>

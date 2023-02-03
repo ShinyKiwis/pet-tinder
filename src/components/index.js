@@ -9,3 +9,4 @@ export { default as PetCard } from "./PetCard";
 export { default as SearchBar } from "./SearchBar";
 export { default as Modal } from "./Modal";
 export { default as Message } from "./Message";
+export { default as GenderIcon } from "./GenderIcon";
