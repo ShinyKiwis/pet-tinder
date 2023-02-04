@@ -2,9 +2,16 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import { ModalContext } from "../providers/ModalProvider";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import { Button, FeatureImage, GenderIcon } from "../components";
+import {
+  Button,
+  FeatureImage,
+  GenderIcon,
+  Message,
+  Modal,
+} from "../components";
 import { BsHeartFill } from "react-icons/bs";
 import fetchPetByID from "../helpers/fetchPetByID";
 import fetchData from "../helpers/fetchData";
@@ -20,8 +27,13 @@ const PetInfoBox = ({ title, value }) => {
 };
 
 const petIsLoved = (id, lovedPets) => {
-  const lovedPet = lovedPets.filter((lovedPet) => lovedPet.id === id);
+  const lovedPet = lovedPets.filter((lovedPet) => lovedPet.id == id);
   return lovedPet.length === 1 ? true : false;
+};
+
+const petIsAdopted = (id, adoptedPets) => {
+  const adoptedPet = adoptedPets.filter((adoptedPet) => adoptedPet.id === id);
+  return adoptedPet.length === 1 ? true : false;
 };
 
 const Adoption = () => {
@@ -30,9 +42,11 @@ const Adoption = () => {
     [`pet:${petID}`, petID],
     fetchPetByID
   );
-  const { user, setUser } = useContext(AuthContext);
+  const { user, setUser, saveUser } = useContext(AuthContext);
   const [attribute, setAttribute] = useState("");
   const [isLoved, setIsLoved] = useState(petIsLoved(petID, user.loved));
+  const { toggleModal, closeModal, message, showModal } =
+    useContext(ModalContext);
   const handleLove = () => {
     const petInfo = {
       id: petID,
@@ -69,6 +83,7 @@ const Adoption = () => {
     };
     setAttribute("adopted");
     setUser({ ...user, adopted: [...user.adopted, petInfo] });
+    toggleModal("You adopted " + pet.name);
   };
   useEffect(() => {
     if (attribute !== "") {
@@ -77,13 +92,28 @@ const Adoption = () => {
         attribute: attribute,
         value: user[attribute],
       });
+      saveUser(user);
     }
   }, [user]);
+
+  const handleRelease = () => {
+    setAttribute("adopted");
+    setUser({
+      ...user,
+      adopted: user.adopted.filter((adoptedPet) => adoptedPet.id !== petID),
+    });
+    toggleModal("You are no longer friend with " + pet.name);
+  };
 
   return isLoading ? (
     <h2>Loading Pet Info</h2>
   ) : (
     <div className="adoption_container">
+      {showModal && (
+        <Modal>
+          <Message message={message} onClose={closeModal} />
+        </Modal>
+      )}
       <FeatureImage
         imgSrc={
           pet.photos.length
@@ -114,8 +144,8 @@ const Adoption = () => {
         <p>{pet.description}</p>
         <Button
           isPrimary={true}
-          content="Adoption Now"
-          onClick={handleAdoption}
+          content={petIsAdopted(petID, user.adopted) ? "Unfriend :(" : "Adoption Now"}
+          onClick={petIsAdopted(petID, user.adopted) ? handleRelease : handleAdoption}
         />
       </div>
     </div>

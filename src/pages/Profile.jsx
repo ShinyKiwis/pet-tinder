@@ -1,11 +1,15 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Avatar, Header } from "../components";
 import { AuthContext } from "../providers/AuthProvider";
 import "../styles/Profile.css";
 
-const FriendAvatar = ({ name, imgSrc }) => {
+const FriendAvatar = ({ id, name, imgSrc }) => {
+  const navigate = useNavigate();
   return (
-    <div className="friend_avatar">
+    <div className="friend_avatar" onClick={() => navigate("/adoption/" + id)}>
       <Avatar size="big" imgSrc={imgSrc} />
       <span>{name}</span>
     </div>
@@ -29,6 +33,7 @@ const Profile = () => {
             {friends.map((friend) => (
               <FriendAvatar
                 key={friend.id}
+                id={friend.id}
                 name={friend.name}
                 imgSrc={friend.imgSrc}
               />

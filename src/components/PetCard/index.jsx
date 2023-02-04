@@ -16,7 +16,7 @@ const petIsLoved = (id, lovedPets) => {
 
 const PetCard = ({ id, imgSrc, name, gender, breed, age }) => {
   const navigate = useNavigate();
-  const { user, setUser } = useContext(AuthContext);
+  const { user, setUser, saveUser } = useContext(AuthContext);
   const [isLoved, setIsLoved] = useState(petIsLoved(id, user.loved));
   const handleLove = () => {
     const petInfo = {
@@ -44,6 +44,7 @@ const PetCard = ({ id, imgSrc, name, gender, breed, age }) => {
       attribute: "loved",
       value: user.loved,
     });
+    saveUser(user)
   }, [user]);
 
   return (

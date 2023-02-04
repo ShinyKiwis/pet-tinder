@@ -5,7 +5,6 @@ import { AuthContext } from "../providers/AuthProvider";
 const Loved = () => {
   const { user } = useContext(AuthContext);
   const lovedPets = user.loved;
-  console.log(lovedPets)
   return (
     <main>
       <Header renderAvatar={true} />

@@ -15,8 +15,13 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
+  const saveUser = (user) => {
+    sessionStorage.setItem("user", JSON.stringify(user));
+    setUser(user);
+  };
+
   return (
-    <AuthContext.Provider value={{ user, setUser, login, logout }}>
+    <AuthContext.Provider value={{ user, setUser, login, logout, saveUser }}>
       {children}
     </AuthContext.Provider>
   );
