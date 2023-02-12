@@ -18,7 +18,9 @@ const PetCard = ({ id, imgSrc, name, gender, breed, age }) => {
   const navigate = useNavigate();
   const { user, setUser, saveUser } = useContext(AuthContext);
   const [isLoved, setIsLoved] = useState(petIsLoved(id, user.loved));
+  const [toggleFetch, setToggleFetch] = useState(false);
   const handleLove = () => {
+    setToggleFetch(true)
     const petInfo = {
       id: id,
       imgSrc: imgSrc,
@@ -39,12 +41,15 @@ const PetCard = ({ id, imgSrc, name, gender, breed, age }) => {
   };
 
   useEffect(() => {
-    fetchData("http://localhost:3600/api/update", {
-      username: user.username,
-      attribute: "loved",
-      value: user.loved,
-    });
-    saveUser(user)
+    if (toggleFetch) {
+      fetchData("http://localhost:3600/api/update", {
+        username: user.username,
+        attribute: "loved",
+        value: user.loved,
+      });
+      saveUser(user);
+      setToggleFetch(false)
+    }
   }, [user]);
 
   return (

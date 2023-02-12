@@ -1,4 +1,5 @@
 const fetchData = async (url, data) => {
+  console.log(data);
   const user = await fetch(url, {
     method: "POST",
     mode: "cors",
@@ -10,4 +11,4 @@ const fetchData = async (url, data) => {
   return user.json();
 };
 
-export default fetchData
+export default fetchData;
