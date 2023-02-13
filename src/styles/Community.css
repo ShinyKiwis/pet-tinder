@@ -8,9 +8,6 @@
   font-weight: 500;
   color: var(--text-dark);
   margin-top: 0.8em;
-}
-
-.community_activity strong {
   color: var(--primary);
 }
 

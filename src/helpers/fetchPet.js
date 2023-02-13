@@ -1,15 +1,13 @@
 import axios from "axios";
 
-const fetchPet = async ({ queryKey }) => {
-  const type = queryKey[1];
-  const page = queryKey[2];
+const fetchPet = async ({ pageParam = 1 }) => {
   const { data: response } = await axios.get("http://localhost:3600/api/pets", {
     params: {
-      type: type,
-      page: page,
+      // type: type,
+      page: pageParam,
     },
   });
-  return response;
+  return {response, nextPage:pageParam +1, totalPages: 50};
 };
 
 export default fetchPet;

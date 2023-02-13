@@ -3,17 +3,17 @@
   flex: 0 1 calc(50% - 8px);
   /* flex: 45%; */
   font-weight: 500;
-  width: 30%;
-  height: 30%;
+  /* width: 30%; */
+  /* height: 30%; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 3em;
+  margin-bottom: 4em;
 }
 
 .petcard_container img {
   width: 100%;
-  height: 100%;
+  height: 10em;
   border-radius: 0.6em;
 }
 

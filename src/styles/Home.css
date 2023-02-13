@@ -1,8 +1,15 @@
 .pets_container {
   margin-top: 1em;
-  height: 62vh;
+  height: 65vh;
+  overflow: auto;
+}
+
+.pets_container_scroller {
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
-  overflow-y: auto;
+}
+
+main>h3 {
+  color: var(--primary);
 }

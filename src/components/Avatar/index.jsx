@@ -7,7 +7,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 const Avatar = ({ imgSrc, size }) => {
   const {user} = useContext(AuthContext)
-  const imgData = user.avatar ? user.avatar : imgSrc
+  const imgData = imgSrc ? imgSrc: user.avatar
   const navigate = useNavigate();
   return (
     <img

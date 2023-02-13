@@ -2,24 +2,48 @@ import { useAuth } from "../hooks";
 import { Navigate } from "react-router-dom";
 import { Header, PetCard, SearchBar } from "../components";
 import "../styles/Home.css";
-import { useQuery } from "react-query";
+import { useInfiniteQuery } from "react-query";
+import InfiniteScroll from "react-infinite-scroll-component";
 import fetchPet from "../helpers/fetchPet";
 
 const Home = () => {
   const { user } = useAuth();
-  const results = useQuery(["pet-list", undefined, undefined], fetchPet);
-  const petList = results.data;
+  const results = useInfiniteQuery(["pet-list"], fetchPet, {
+    getNextPageParam: (lastPage, pages) => {
+      if (lastPage.nextPage < lastPage.totalPages) return lastPage.nextPage;
+      return undefined;
+    },
+  });
+
+  if (results.isError) {
+    return <h3>Error</h3>;
+  } else if (results.isLoading) {
+    return (
+      <main>
+        {/* <Header renderAvatar={true} /> */}
+        {/* <SearchBar /> */}
+        <h3>Loading fluffy friends for you</h3>
+      </main>
+    );
+  }
+  console.log(results.data);
+  const petList = results.data.pages;
   return user ? (
     <main>
       <Header renderAvatar={true} />
       <SearchBar />
-      {results.isLoading ? (
-        <h3>Loading pet list</h3>
-      ) : (
-        <>
-          <h3>Your new friends await!</h3>
-          <div className="pets_container">
-            {petList.map((pet) => (
+      <h3>Your new friends await!</h3>
+      <div id="pets_scroller" className="pets_container">
+        <InfiniteScroll
+          dataLength={petList.length * 20}
+          hasMore={results.hasNextPage}
+          next={results.fetchNextPage}
+          className="pets_container_scroller"
+          scrollableTarget="pets_scroller"
+          scrollThreshold={0.95}
+        >
+          {petList.map((page) =>
+            page.response.map((pet) => (
               <PetCard
                 key={pet.id}
                 id={pet.id}
@@ -33,10 +57,10 @@ const Home = () => {
                 breed={pet.breeds.primary}
                 age={pet.age}
               />
-            ))}
-          </div>
-        </>
-      )}
+            ))
+          )}
+        </InfiniteScroll>
+      </div>
     </main>
   ) : (
     <Navigate to="/login" />

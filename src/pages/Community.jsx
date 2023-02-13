@@ -1,14 +1,10 @@
-import { Avatar, Header, SearchBar } from "../components";
+import { Header, SearchBar } from "../components";
 import "../styles/Community.css";
 
 const CommunityActivity = () => {
   return (
     <div className="community_activity">
-      <Avatar size="small" />
-      <span>
-        <strong>adopted</strong> his friend
-      </span>
-      <Avatar size="small" />
+      Currently empty!
     </div>
   );
 };
@@ -20,10 +16,6 @@ const Community = () => {
       <SearchBar />
       <h3>Community Activities</h3>
       <div className="activities_container">
-        <CommunityActivity />
-        <CommunityActivity />
-        <CommunityActivity />
-        <CommunityActivity />
         <CommunityActivity />
       </div>
     </main>

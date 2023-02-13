@@ -11,6 +11,7 @@ All pet data is called from API PetFinder belong to Purina:
 https://www.petfinder.com/
 # Features 
 - Authentication with MongoDB
-- Responsive Design 
-- Using API 
-- Routing between different pages
+- Design for Mobile only
+- Infinite scrolling using react-query and react-infinite-scroller-component
+- Using Pet Finder API 
+- Routing between different pages with react-router
