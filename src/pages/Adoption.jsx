@@ -106,7 +106,7 @@ const Adoption = () => {
   };
 
   return isLoading ? (
-    <h2>Loading Pet Info</h2>
+    <h3>Loading Pet Info</h3>
   ) : (
     <div className="adoption_container">
       {showModal && (

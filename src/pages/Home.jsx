@@ -54,21 +54,23 @@ const Home = () => {
                   ? pet.type.toLowerCase() == searchTerm.toLowerCase()
                   : pet
               )
-              .map((pet) => (
-                <PetCard
-                  key={pet.id}
-                  id={pet.id}
-                  imgSrc={
-                    pet.photos.length
-                      ? pet.photos[0].medium
-                      : "https://img.freepik.com/free-vector/pet-logo-design-paw-vector-animal-shop-business_53876-136741.jpg"
-                  }
-                  name={pet.name}
-                  gender={pet.gender}
-                  breed={pet.breeds.primary}
-                  age={pet.age}
-                />
-              ))
+              .map((pet) => {
+                return (
+                  <PetCard
+                    key={pet.id}
+                    id={pet.id}
+                    imgSrc={
+                      pet.photos.length
+                        ? pet.photos[0].medium
+                        : "https://img.freepik.com/free-vector/pet-logo-design-paw-vector-animal-shop-business_53876-136741.jpg"
+                    }
+                    name={pet.name}
+                    gender={pet.gender}
+                    breed={pet.breeds.primary}
+                    age={pet.age}
+                  />
+                );
+              })
           )}
         </InfiniteScroll>
       </div>
