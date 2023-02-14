@@ -1,13 +1,17 @@
 import { BsSearch } from "react-icons/bs";
-import "./SearchBar.css"
+import "./SearchBar.css";
 
-const SearchBar = () => {
+const SearchBar = ({ setSearchTerm }) => {
   return (
     <div className="searchbar_container">
       <BsSearch className="searchbar_icon" size="1.5em" />
-      <input type="text" placeholder="Search pet..." />
+      <input
+        onChange={(e) => setSearchTerm(e.target.value)}
+        type="text"
+        placeholder="Search pet type (cat or dog)..."
+      />
     </div>
   );
 };
 
-export default SearchBar
+export default SearchBar;

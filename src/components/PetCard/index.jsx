@@ -42,13 +42,13 @@ const PetCard = ({ id, imgSrc, name, gender, breed, age }) => {
 
   useEffect(() => {
     if (toggleFetch) {
+      saveUser(user);
+      setToggleFetch(false)
       fetchData("http://localhost:3600/api/update", {
         username: user.username,
         attribute: "loved",
         value: user.loved,
       });
-      saveUser(user);
-      setToggleFetch(false)
     }
   }, [user]);
 
