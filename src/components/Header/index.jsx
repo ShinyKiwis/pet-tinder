@@ -1,14 +1,18 @@
-import Avatar from "../Avatar"
-import Logo from "../Logo"
-import "./Header.css"
+import Avatar from "../Avatar";
+import Logo from "../Logo";
+import Navbar from "../Navbar";
+import "./Header.css";
 
-const Header = ({renderAvatar}) => {
+const Header = ({ renderAvatar }) => {
   return (
     <header>
       <Logo />
-      {renderAvatar && <Avatar size="small"/>}
+      <div className="header_navbar">
+        <Navbar />
+        {renderAvatar && <Avatar size="small" />}
+      </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

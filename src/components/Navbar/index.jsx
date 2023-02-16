@@ -9,7 +9,7 @@ const NavbarItem = ({ location, routePath, Icon, content }) => {
     <Link to={routePath} style={{textDecoration: "none"}}>
       <div className={`navbar_item ${isActive ? "navbar_item_active" : ""}`}>
         <span className={isActive ? "navbar_icon_active" : ""}>
-          <Icon size="2em" />
+          <Icon size="2em" className="navbar_item_icon"/>
         </span>
         {content}
       </div>
@@ -17,7 +17,7 @@ const NavbarItem = ({ location, routePath, Icon, content }) => {
   );
 };
 
-const Navbar = () => {
+const Navbar = ({className}) => {
   const location = useLocation();
   const navItems = [
     { routePath: "/loved", content: "Loved", icon: AiFillHeart },
@@ -30,7 +30,7 @@ const Navbar = () => {
   return excludedPath.includes(location.pathname) ? (
     <></>
   ) : (
-    <nav>
+    <nav className={`${className ? className: ''}`}>
       {navItems.map((item) => (
         <NavbarItem
           location={location}

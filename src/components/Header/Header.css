@@ -3,6 +3,17 @@ header {
   align-items: center;
 }
 
-header>img:last-child:not(:only-of-type) {
-  margin-left: auto;
+@media only screen and (max-width: 600px) {
+  .header_navbar {
+    margin-left: auto;
+  }
+}
+
+@media only screen and (min-width:992px) {
+  .header_navbar {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+  }
 }

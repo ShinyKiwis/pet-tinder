@@ -38,7 +38,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/adoption/:petID" element={<Adoption />} />
           </Routes>
-          {!location.pathname.includes("adoption") && <Navbar />}
+          {!location.pathname.includes("adoption") && <Navbar className="hide"/>}
         </QueryClientProvider>
       </ModalProvider>
     </AuthProvider>

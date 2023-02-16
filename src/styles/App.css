@@ -1,5 +1,6 @@
 @media screen and (min-width: 992px) {
   main {
     padding-inline: 10em;
+    height: 100vh;
   }
 }

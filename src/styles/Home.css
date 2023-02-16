@@ -14,3 +14,9 @@
 main>h3 {
   color: var(--primary);
 }
+
+@media only screen and (min-width: 992px) {
+  .pets_container {
+    height: 75vh;
+  }
+}
