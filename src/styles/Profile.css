@@ -40,3 +40,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+@media only screen and (min-width: 992px) {
+  .profile_container p {
+    color: var(--text-dark);
+    font-size: 1.2em;
+    font-weight: 500;
+  }
+}

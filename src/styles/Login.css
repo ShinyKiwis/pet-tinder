@@ -17,3 +17,43 @@
   margin-top: 20%;
   padding-inline: 12%;
 }
+
+@media only screen and (min-width: 992px) {
+  .login_container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+  .logo_container {
+    top: 25%;
+    left: 25%;
+    right: 25%;
+  }
+  .user_section {
+    margin-top: 20em;
+    width: 60%;
+    margin: auto;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+  .login_container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+  .logo_container {
+    top: 35%;
+    left: 25%;
+    right: 25%;
+  }
+  .user_section {
+    margin-top: 20em;
+    width: 60%;
+    margin: auto;
+  }
+}

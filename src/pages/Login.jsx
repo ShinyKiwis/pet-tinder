@@ -56,7 +56,7 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className="login_container">
       {showModal && (
         <Modal>
           <Message message={message} onClose={closeModal} />
@@ -69,6 +69,7 @@ const Login = () => {
         showIndicators={false}
         infiniteLoop={true}
         autoPlay={true}
+        className="hide"
       >
         {Array.from(Array(numberOfImages).keys()).map((idx) => (
           <FeatureImage
@@ -94,7 +95,7 @@ const Login = () => {
         <Button content="Sign in" isPrimary={true} onClick={handleLogin} />
         <Button content="Register" isPrimary={false} onClick={handleRegister} />
       </div>
-    </>
+    </div>
   );
 };
 

@@ -20,3 +20,9 @@ main>h3 {
     height: 75vh;
   }
 }
+
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+  .pets_container {
+    height: 85vh;
+  }
+}

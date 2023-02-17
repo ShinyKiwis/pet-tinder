@@ -7,6 +7,10 @@
   height: 80vh;
 }
 
+.settings_actions button {
+  cursor: pointer;
+}
+
 
 .settings_container>button:first-of-type {
   background-color: var(--secondary-white);
@@ -57,4 +61,28 @@
 .settings_actions {
   margin-top: auto;
   width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  .settings_container {
+    width: 30em;
+    margin: auto;
+  }
+  .bio_container {
+    width: 100%;
+  }
+  .bio_container textarea{
+    width: 100%;
+  }
+
+  .settings_actions {
+    display: flex;
+    gap: 1em;
+    margin-top: 2em;
+  }
+
+  .settings_actions button{
+    width: fit-content;
+    font-size: 1em;
+  }
 }

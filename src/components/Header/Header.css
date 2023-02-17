@@ -3,7 +3,7 @@ header {
   align-items: center;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: 992px) {
   .header_navbar {
     margin-left: auto;
   }

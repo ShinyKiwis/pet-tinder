@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
-const Avatar = ({ imgSrc, size }) => {
+const Avatar = ({ imgSrc, size, className }) => {
   const {user} = useContext(AuthContext)
   const imgData = imgSrc ? imgSrc: user.avatar
   const navigate = useNavigate();
   return (
     <img
-      className={`${size} avatar`}
+      className={`${size} avatar ${className}`}
       src={imgData ? imgData : "pet_logo.svg"}
       alt="user avatar"
       onClick={() => navigate("/profile")}

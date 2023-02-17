@@ -9,7 +9,7 @@ const Header = ({ renderAvatar }) => {
       <Logo />
       <div className="header_navbar">
         <Navbar />
-        {renderAvatar && <Avatar size="small" />}
+        {renderAvatar && <Avatar size="small" className="hide"/>}
       </div>
     </header>
   );
