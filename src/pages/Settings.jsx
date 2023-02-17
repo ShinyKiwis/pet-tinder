@@ -19,7 +19,7 @@ const Settings = () => {
       saveUser({ ...user, bio: bio });
       // Show popup modal
       // Update back to server
-      fetchData("http://localhost:3600/api/update", {
+      fetchData("https://pet-tinder-backend.onrender.com/api/update", {
         username: user.username,
         attribute: "bio",
         value: bio,
@@ -37,7 +37,7 @@ const Settings = () => {
       reader.onload = () => {
         const size = new Blob([reader.result]).size
         if(size <= 10000000){
-          fetchData("http://localhost:3600/api/update", {
+          fetchData("https://pet-tinder-backend.onrender.com/api/update", {
             username: user.username,
             attribute: "avatar",
             value: reader.result,

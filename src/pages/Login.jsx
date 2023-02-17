@@ -25,7 +25,7 @@ const Login = () => {
 
   const handleLogin = () => {
     if (username && password) {
-      fetchData("http://localhost:3600/api/login", {
+      fetchData("https://pet-tinder-backend.onrender.com/api/login", {
         username: username,
         password: password,
       }).then((data) => {
@@ -46,7 +46,7 @@ const Login = () => {
 
   const handleRegister = () => {
     if (username && password) {
-      fetchData("http://localhost:3600/api/register", {
+      fetchData("https://pet-tinder-backend.onrender.com/api/register", {
         username: username,
         password: password,
       });

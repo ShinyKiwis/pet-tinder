@@ -87,7 +87,7 @@ const Adoption = () => {
   };
   useEffect(() => {
     if (attribute !== "") {
-      fetchData("http://localhost:3600/api/update", {
+      fetchData("https://pet-tinder-backend.onrender.com/api/update", {
         username: user.username,
         attribute: attribute,
         value: user[attribute],

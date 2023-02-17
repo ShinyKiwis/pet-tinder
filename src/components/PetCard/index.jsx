@@ -44,7 +44,7 @@ const PetCard = ({ id, imgSrc, name, gender, breed, age }) => {
   useEffect(() => {
     if (user.loved.length != lovedLength) {
       saveUser(user);
-      fetchData("http://localhost:3600/api/update", {
+      fetchData("https://pet-tinder-backend.onrender.com/api/update", {
         username: user.username,
         attribute: "loved",
         value: user.loved,

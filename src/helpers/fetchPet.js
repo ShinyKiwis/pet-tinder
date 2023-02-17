@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const fetchPet = async ({ pageParam = 1 }) => {
-  const { data: response } = await axios.get("http://localhost:3600/api/pets", {
+  const { data: response } = await axios.get("https://pet-tinder-backend.onrender.com/api/pets", {
     params: {
       // type: type,
       page: pageParam,
