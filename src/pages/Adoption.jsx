@@ -117,7 +117,7 @@ const Adoption = () => {
       <FeatureImage
         imgSrc={
           pet.photos.length
-            ? pet.photos[0].medium
+            ? pet.photos[0].large
             : "https://img.freepik.com/free-vector/pet-logo-design-paw-vector-animal-shop-business_53876-136741.jpg"
         }
       />

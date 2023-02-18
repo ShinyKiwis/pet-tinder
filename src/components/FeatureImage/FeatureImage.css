@@ -4,3 +4,13 @@
   object-fit: cover;
   border-radius: 0 0 2em 2em;
 }
+
+@media only screen and (min-width: 600px) {
+  .feature_image {
+    padding: 1em;
+    width: 50%;
+    height: 100%;
+    border-radius: 2em;
+  }
+
+}

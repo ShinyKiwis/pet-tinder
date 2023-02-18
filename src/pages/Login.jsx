@@ -21,7 +21,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useContext(AuthContext);
-  const { toggleModal, showModal, closeModal, message } = useModal()
+  const { toggleModal, showModal, closeModal, message } = useModal();
 
   const handleLogin = () => {
     if (username && password) {
@@ -50,6 +50,7 @@ const Login = () => {
         username: username,
         password: password,
       });
+      toggleModal("Register Successfully!");
     } else {
       toggleModal("Please enter username and password to register");
     }

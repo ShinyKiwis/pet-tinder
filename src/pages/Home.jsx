@@ -33,6 +33,7 @@ const Home = () => {
   }
   // console.log(results.data);
   const petList = results.data.pages;
+  console.log(petList);
   return user ? (
     <main>
       <Header renderAvatar={true} />

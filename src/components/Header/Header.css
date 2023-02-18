@@ -3,15 +3,12 @@ header {
   align-items: center;
 }
 
-@media only screen and (min-width: 600px) and (max-width: 992px) {
-  .header_navbar {
-    margin-left: auto;
-  }
+.header_navbar {
+  margin-left: auto;
 }
 
 @media only screen and (min-width:992px) {
   .header_navbar {
-    margin-left: auto;
     display: flex;
     align-items: center;
     gap: 2em;
